@@ -122,6 +122,14 @@ if st.button("🔮 Predecir precio"):
         "Terrace": [int(terrace)],
         "Swimming_Pool": [int(pool)]})
 
+
+    st.write("🧾 input_data:", input_data)
+st.write("🧾 dtypes:", input_data.dtypes)
+
+if input_data.isna().any().any():
+    st.error("❌ Hay NaNs en el input_data")
+    st.stop()
+
     # Predicción en log-precio
     log_price_pred = model.predict(input_data)[0]
 
@@ -139,6 +147,7 @@ if st.button("🔮 Predecir precio"):
         "del mercado inmobiliario de Madrid en el año 2023. "
 
         "El resultado tiene carácter orientativo y no constituye una valoración oficial.")
+
 
 
 
