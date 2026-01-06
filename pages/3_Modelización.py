@@ -20,6 +20,8 @@ st.subheader("📊 Dataset utilizado para el entrenamiento")
 st.dataframe(df_modelos.sample(200))
 st.caption("Fuente: Kaggle")
 
+st.divider()
+
 ### Preprocesamiento y transformaciones
 
 st.subheader("Preprocesamiento y transformaciones")
@@ -37,6 +39,7 @@ En esta sección se muestran los datos originales para facilitar la interpretaci
 No obstante, algunas visualizaciones emplean escalas logarítmicas con el fin de representar
 adecuadamente distribuciones muy asimétricas.""")
 
+st.divider()
 
 #Distribución precios
 st.subheader("Distribución del precio de la vivienda")
@@ -53,6 +56,8 @@ st.write("""Se observa que, tras aplicar una escala logarítmica, la distribuci�
 forma aproximadamente unimodal, lo que indica que la transformación reduce significativamente
 la asimetría presente en los valores originales.""")
 
+st.divider()
+
 #Superficie vs Precio
 st.subheader("Relación entre superficie y precio")
 
@@ -68,6 +73,8 @@ fig = px.scatter(
 fig.update_layout(height=450)
 st.plotly_chart(fig, use_container_width=True)
 st.write("Se observa una relación lineal positiva muy clara entre la superficie y el precio")
+
+st.divider()
 
 #Variables categóricas
 st.subheader("Efecto de variables cualitativas")
@@ -93,6 +100,8 @@ st.write("""Las variables cualitativas muestran diferencias sistemáticas en el 
 Por ejemplo, la presencia de ascensor se asocia con valores medianos más elevados,
 lo que indica que estas variables aportan información relevante al modelo.""")
 
+st.divider()
+
 st.subheader("Implicaciones para la modelización")
 st.write("""A partir del análisis exploratorio, se observa la presencia de relaciones no lineales,
 asimetría en las distribuciones y efectos diferenciados de variables cualitativas
@@ -102,6 +111,8 @@ de modelos estrictamente lineales.
 Por este motivo, se plantean distintos enfoques de modelización, combinando un modelo
 lineal como referencia con modelos no paramétricos basados en árboles, capaces de capturar
 interacciones y no linealidades de forma flexible.""")
+
+st.divider()
 
 st.subheader("Modelos considerados")
 st.markdown("""Los modelos considerados en el análisis son los siguientes:
@@ -124,6 +135,8 @@ st.markdown("""Los modelos considerados en el análisis son los siguientes:
   actuando como enfoque alternativo para contrastar el rendimiento de los métodos basados
   en árboles.""")
 
+st.divider()
+
 st.subheader("Selección del modelo final")
 st.markdown("""La comparación entre modelos se realiza utilizando validación cruzada, evaluando tanto
 la capacidad explicativa (R²) como el error de predicción (RMSE).
@@ -138,6 +151,8 @@ este modelo como el enfoque final del estudio. El Random Forest se mantiene como
 alternativa robusta, confirmando la solidez de los resultados y reforzando la confianza
 en la modelización realizada.""")
 
+st.divider()
+
 st.subheader("Resultados de validación cruzada")
 st.markdown("""| Modelo | R² CV (mean) | RMSE CV (mean) |
 |:------:|:-------------:|:---------------:|
@@ -151,4 +166,5 @@ st.markdown("""| Modelo | R² CV (mean) | RMSE CV (mean) |
 st.markdown("""La similitud de resultados entre Random Forest y XGBoost sugiere que la información
 contenida en las variables explicativas es capturada de forma consistente por distintos
 métodos no paramétricos. Esto refuerza la validez de las conclusiones obtenidas y pone
+
 de manifiesto la robustez del análisis realizado.""")
