@@ -129,6 +129,14 @@ st.write("🧾 dtypes:", input_data.dtypes)
 if input_data.isna().any().any():
     st.error("❌ Hay NaNs en el input_data")
     st.stop()
+    
+# DEBUG: ver qué entra realmente al modelo
+if hasattr(model, "named_steps"):
+    X_debug = model.named_steps["preprocess"].transform(input_data)
+    st.write("X después del preprocess:")
+    st.write(X_debug[:1])
+    st.write("Shape:", X_debug.shape)
+
 
     # Predicción en log-precio
     log_price_pred = model.predict(input_data)[0]
@@ -147,6 +155,7 @@ if input_data.isna().any().any():
         "del mercado inmobiliario de Madrid en el año 2023. "
 
         "El resultado tiene carácter orientativo y no constituye una valoración oficial.")
+
 
 
 
