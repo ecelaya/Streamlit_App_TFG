@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 import joblib
 from geopy.geocoders import Nominatim
+import sklearn
+import xgboost
+import os
 
 st.set_page_config(layout="wide")
 
@@ -23,6 +26,20 @@ def is_in_madrid(lat, lon):
 def load_model():
     return joblib.load("modelo_xgb_final.pkl")
 model = load_model()
+
+
+st.write("📌 Working dir:", os.getcwd())
+st.write("📌 Files:", os.listdir())
+st.write("✅ sklearn version:", sklearn.__version__)
+st.write("✅ xgboost version:", xgboost.__version__)
+st.write("✅ Model type:", type(model))
+if hasattr(model, "named_steps"):
+    st.write("✅ Pipeline steps:", model.named_steps.keys())
+    if "preprocess" in model.named_steps:
+        st.write("✅ Preprocess:", model.named_steps["preprocess"])
+    if "model" in model.named_steps:
+        st.write("✅ Inner model:", type(model.named_steps["model"]))
+
 
 # Geocoder (dirección → lat/lon)
 @st.cache_resource
@@ -136,6 +153,7 @@ if st.button("🔮 Predecir precio"):
         "del mercado inmobiliario de Madrid en el año 2023. "
 
         "El resultado tiene carácter orientativo y no constituye una valoración oficial.")
+
 
 
 
