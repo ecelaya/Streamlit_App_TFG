@@ -1,18 +1,19 @@
-streamlit>=1.30
+streamlit
 
-pandas>=2.0
-numpy>=1.24
+pandas
+numpy
 
-plotly>=5.18
+plotly
 
-geopandas==0.14.2
-shapely>=2.0
-pyproj>=3.6
-fiona>=1.9
+geopandas
+shapely
+pyproj
+fiona
 
-scikit-learn>=1.3
-joblib>=1.3
-geopy>=2.4
+scikit-learn
+joblib
+geopy
 
-xgboost>=1.6
+xgboost
+
 
