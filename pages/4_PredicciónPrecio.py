@@ -105,7 +105,7 @@ if st.button("🔮 Predecir precio"):
             "El modelo solo es válido para viviendas situadas dentro de la ciudad.")
         st.stop()
 
-    # Crear DataFrame con EXACTAS columnas del modelo
+    # Crear DataFrame con columnas del modelo
     input_data = pd.DataFrame({
         "log_surface": [np.log(surface)],
         "Rooms": [rooms],
@@ -138,6 +138,7 @@ if st.button("🔮 Predecir precio"):
         "del mercado inmobiliario de Madrid en el año 2023. "
 
         "El resultado tiene carácter orientativo y no constituye una valoración oficial.")
+
 
 
 
