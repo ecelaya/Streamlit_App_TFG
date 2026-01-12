@@ -189,7 +189,7 @@ fig.add_scatter(
     y=df_ciudad["€/m²"],
     mode="lines",
     name="Ciudad de Madrid",
-    line=dict(color="blue", dash="dash"))
+    line=dict(color="green", dash="dash"))
 
 st.plotly_chart(fig, use_container_width=True)
 
@@ -287,6 +287,7 @@ fig.update_layout(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
 
 
 
