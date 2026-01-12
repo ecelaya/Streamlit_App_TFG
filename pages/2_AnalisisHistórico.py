@@ -64,6 +64,7 @@ st.divider()
 #Grafico de lineas con filtros
 
 st.subheader("Evolución del precio medio en la Comunidad de Madrid por municipio")
+st.text("Este gráfico interactivo permite seleccionar los municipios deseados para ver su evolución de los años 2005-2025")
 
 # Selector de municipios
 municipios = df_municipios["Municipio"].unique()
@@ -88,6 +89,7 @@ st.divider()
 #Mapa interactivo
 
 st.subheader("Mapa histórico del valor tasado e incremento anual en la Comunidad de Madrid")
+st.text("Este mapa interactivo permite seleccionar entre valor tasado o incremento anual para observar de forma visual la evolución de los municipios. Seleccione el año de su interés o haga click en el botón de *play* para ver la evolución desde el 2005")
 
 @st.cache_data
 def load_limites_geo():
@@ -287,6 +289,7 @@ fig.update_layout(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+
 
 
 
