@@ -165,6 +165,6 @@ st.markdown("""| Modelo | R² CV (mean) | RMSE CV (mean) |
 
 st.markdown("""La similitud de resultados entre Random Forest y XGBoost sugiere que la información
 contenida en las variables explicativas es capturada de forma consistente por distintos
-métodos no paramétricos. Esto refuerza la validez de las conclusiones obtenidas y pone
-
+métodos no paramétricos. Esto refuerza la validez de las conclusiones obtenidas y pone 
 de manifiesto la robustez del análisis realizado.""")
+
