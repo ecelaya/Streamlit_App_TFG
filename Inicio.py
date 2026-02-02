@@ -27,12 +27,13 @@ st.divider()
 
 st.title("📄 Memoria del TFG")
 
-st.title("📄 Memoria del TFG")
+with open("TFG_Eloy_Celaya_Lopez.pdf", "rb") as f:
+    pdf_bytes = f.read()
 
-st.pdf("TFG_Eloy_Celaya_Lopez.pdf")
+st.pdf(pdf_bytes)
 
 st.download_button(
     "📥 Descargar memoria (PDF)",
-    data=open("TFG_Eloy_Celaya_Lopez.pdf", "rb"),
+    data=pdf_bytes,
     file_name="TFG_Eloy_Celaya_Lopez.pdf",
     mime="application/pdf")
