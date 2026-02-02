@@ -17,7 +17,7 @@ st.markdown("### 🧭 ¿Cómo usar este dashboard?")
 
 st.markdown("""
 La web dispone de varios apartados a los que se puede acceder a través del menú de la izquierda:
-- **Inicio**: visión general del estudio y métricas clave  
+- **Inicio**: introducción y descarga de la memoria
 - **Datos**: descripción de los datasets y variables utilizadas  
 - **Análisis histórico**: patrones temporales y espaciales del mercado  
 - **Modelización**: comparación y evaluación de los modelos predictivos  
@@ -37,3 +37,4 @@ st.download_button(
     mime="application/pdf")
 
 st.info("La memoria completa del TFG puede descargarse en formato PDF.")
+
