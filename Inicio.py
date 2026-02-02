@@ -5,6 +5,7 @@ import geopandas as gpd
 import pydeck as pdk
 import json
 import base64
+from pathlib import Path
 
 #Título y descripción de la página
 st.set_page_config(page_title="Dashboard Vivienda", layout="wide")
@@ -28,7 +29,9 @@ st.divider()
 
 st.title("📄 Memoria del TFG")
 
-pdf_path = "TFG_Eloy_Celaya_Lopez.pdf"
+BASE_DIR = Path(__file__).resolve().parent
+
+pdf_path = BASE_DIR / "TFG_Eloy_Celaya_Lopez.pdf"
 
 with open(pdf_path, "rb") as f:
     pdf_bytes = f.read()
