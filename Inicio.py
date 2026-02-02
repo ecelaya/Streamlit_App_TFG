@@ -4,6 +4,7 @@ import pandas as pd
 import geopandas as gpd
 import pydeck as pdk
 import json
+import base64
 
 #Título y descripción de la página
 st.set_page_config(page_title="Dashboard Vivienda", layout="wide")
@@ -27,6 +28,31 @@ st.divider()
 
 st.title("Memoria del TFG")
 
+st.title("📄 Memoria del TFG")
+
+pdf_path = "memoria_TFG.pdf"
+
+with open(pdf_path, "rb") as f:
+    pdf_bytes = f.read()
+
+base64_pdf = base64.b64encode(pdf_bytes).decode("utf-8")
+
+pdf_display = f"""
+<iframe 
+    src="data:application/pdf;base64,{base64_pdf}" 
+    width="100%" 
+    height="800"
+    type="application/pdf">
+</iframe>
+"""
+
+st.markdown(pdf_display, unsafe_allow_html=True)
+
+st.download_button(
+    "📥 Descargar memoria en PDF",
+    data=pdf_bytes,
+    file_name="Memoria_TFG_Eloy_Celaya.pdf",
+    mime="application/pdf")
 
 
 
