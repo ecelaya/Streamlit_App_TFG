@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 from geopy.geocoders import Nominatim
+from geopy.exc import GeocoderUnavailable, GeocoderTimedOut
 import sklearn
 import xgboost
 import os
@@ -53,21 +54,37 @@ with col2:
             "Calle de Serrano, Madrid")
 
         if st.button("📍 Usar dirección"):
-            location = geolocator.geocode(address)
-            if location:
-                st.session_state["latitude"] = location.latitude
-                st.session_state["longitude"] = location.longitude
-                st.success("Ubicación encontrada correctamente")
-                st.write(
-                    f"Latitud: {location.latitude:.6f} | "
-                    f"Longitud: {location.longitude:.6f}")
-            else:
-                st.error("No se pudo encontrar la dirección. Prueba a ser más específico.")
+            try:
+                location = geolocator.geocode(address, timeout=10)
+
+                if location:
+                    st.session_state["latitude"] = location.latitude
+                    st.session_state["longitude"] = location.longitude
+                    st.success("Ubicación encontrada correctamente")
+                    st.write(
+                        f"Latitud: {location.latitude:.6f} | "
+                        f"Longitud: {location.longitude:.6f}")
+                else:
+                    st.warning(
+                        "No se ha podido localizar la dirección. "
+                        "Se usará una ubicación de referencia en Madrid."
+                    )
+
+            except (GeocoderUnavailable, GeocoderTimedOut):
+                st.warning(
+                    "⚠️ El servicio de geocodificación no está disponible en este momento. "
+                    "Se usará una ubicación de referencia."
+                )
+
     else:
         latitude = st.number_input("Latitud", value=40.4168, format="%.6f")
         longitude = st.number_input("Longitud", value=-3.7038, format="%.6f")
         st.session_state["latitude"] = latitude
         st.session_state["longitude"] = longitude
+
+if "latitude" not in st.session_state or "longitude" not in st.session_state:
+    st.session_state["latitude"] = 40.4168
+    st.session_state["longitude"] = -3.7038
 
 # Equipamientos
 st.subheader("Equipamientos")
@@ -138,6 +155,7 @@ if st.button("🔮 Predecir precio"):
         "del mercado inmobiliario de Madrid en el año 2023. "
 
         "El resultado tiene carácter orientativo y no constituye una valoración oficial.")
+
 
 
 
