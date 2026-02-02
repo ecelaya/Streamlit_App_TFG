@@ -51,11 +51,3 @@ st.download_button(
     data=pdf_bytes,
     file_name="TFG_Eloy_Celaya_Lopez.pdf",
     mime="application/pdf")
-
-
-
-
-
-
-
-
