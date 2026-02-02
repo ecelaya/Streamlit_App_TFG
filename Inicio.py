@@ -26,11 +26,9 @@ La web dispone de varios apartados a los que se puede acceder a través del men�
 
 st.divider()
 
-st.title("Memoria del TFG")
-
 st.title("📄 Memoria del TFG")
 
-pdf_path = "memoria_TFG.pdf"
+pdf_path = "TFG_Eloy_Celaya_Lopez.pdf"
 
 with open(pdf_path, "rb") as f:
     pdf_bytes = f.read()
@@ -51,8 +49,9 @@ st.markdown(pdf_display, unsafe_allow_html=True)
 st.download_button(
     "📥 Descargar memoria en PDF",
     data=pdf_bytes,
-    file_name="Memoria_TFG_Eloy_Celaya.pdf",
+    file_name="TFG_Eloy_Celaya_Lopez.pdf",
     mime="application/pdf")
+
 
 
 
